@@ -1,0 +1,17 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+x=np.array([35,38,40,50,50,60,65])
+y=np.array([30,55,38,60,48,70,60])
+x=x.reshape(-1,1)
+reg=linear_model.LinearRegression()
+reg.fit(x,y)
+print(reg.coef_)
+print(reg.intercept_)
+z=np.array([55])
+z=z.reshape(-1,1)
+print(reg.predict(z))
+plt.xlabel('X', fontsize=20)
+plt.ylabel('Y', fontsize=20)
+plt.scatter(x,y)
+plt.plot(x,reg.predict(x))
